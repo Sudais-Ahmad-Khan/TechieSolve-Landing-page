@@ -1,0 +1,249 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+body{
+    font-family: "DM Sans", sans-serif;
+}
+@theme {
+    /* ---------- Colors ---------- */
+    --color-primary: #005686;
+    --color-secondary: #0077B9;
+    --color-tertiary: #262B35;
+    --color-text: #FFFFFF;
+    --color-success: #00BF82;
+    --color-warning: #E5A600;
+    --color-error: #EB5972;
+    /* ---------- Heading Typography ---------- */
+    /* Text Sizes */
+    --h1-size: clamp(40px, calc(40px + 8 * ((100vw - 390px) / 378)), 48px);
+    --h2-size: clamp(30px, calc(30px + 6 * ((100vw - 390px) / 378)), 36px);
+    --h3-size: clamp(24px, calc(24px + 8 * ((100vw - 390px) / 378)), 32px);
+    --h4-size: clamp(20px, calc(20px + 6 * ((100vw - 390px) / 378)), 26px);
+    --h5-size: clamp(18px, calc(18px + 2 * ((100vw - 390px) / 378)), 20px);
+    --h6-size: clamp(16px, calc(16px + 2 * ((100vw - 390px) / 378)), 18px);
+    /* Container Padding */
+    --container-px: clamp(20px, calc(20px + (40 - 20) * ((100vw - 390px) / (768 - 390))), 40px);
+    --container-py: clamp(38px, calc(38px + (70 - 38) * ((100vw - 390px) / (768 - 390))), 70px);
+    --nav-px: clamp(8px, calc(8px + (20 - 8) * ((100vw - 390px) / (768 - 390))), 20px);
+    /* Paragraph text size */
+    --p-size: 14px;
+}
+/* -------------------- Responsive overrides outside theme -------------------- */
+/* ------ H1 ------*/
+@media (min-width: 768px) {
+    :root {
+        --h1-size: clamp(48px, calc(48px + 24 * ((100vw - 768px) / 512)), 72px);
+    }
+}
+@media (min-width: 1280px) {
+    :root {
+        --h1-size: clamp(72px, calc(72px + 24 * ((100vw - 1280px) / 256)), 96px);
+    }
+}
+@media (min-width: 1536px) {
+    :root {
+        --h1-size: 96px;
+    }
+}
+/* ------ H2 ------ */
+
+@media (min-width: 768px) {
+    :root {
+        --h2-size: clamp(36px, calc(36px + 12 * ((100vw - 768px) / 512)), 48px);
+    }
+}
+@media (min-width: 1280px) {
+    :root {
+        --h2-size: clamp(48px, calc(48px + 12 * ((100vw - 1280px) / 256)), 60px);
+    }
+}
+@media (min-width: 1536px) {
+    :root {
+        --h2-size: 60px;
+    }
+}
+
+/* ------ H3 ------ */
+
+@media (min-width: 768px) {
+    :root {
+        --h3-size: clamp(30px, calc(30px + 6 * ((100vw - 768px) / 512)), 36px);
+    }
+}
+@media (min-width: 1280px) {
+    :root {
+      --h3-size: clamp(36px, calc(36px + 12 * ((100vw - 1280px) / 256)), 48px);
+    }
+}
+@media (min-width: 1536px) {
+    :root {
+        --h3-size: 48px;
+    }
+}
+
+/* ------ H4 ------ */
+
+@media (min-width: 768px) {
+    :root {
+        --h4-size: clamp(26px, calc(26px + 4 * ((100vw - 768px) / 512)), 30px);
+    }
+}
+@media (min-width: 1280px) {
+    :root {
+        --h4-size: clamp(30px, calc(30px + 6 * ((100vw - 1280px) / 256)), 36px);
+    }
+}
+@media (min-width: 1536px) {
+    :root {
+        --h4-size: 36px;
+    }
+}
+
+/* ------ H5 ------ */
+
+@media (min-width: 768px) {
+    :root {
+        --h5-size: clamp(20px, calc(20px + 4 * ((100vw - 768px) / 512)), 24px);
+    }
+}
+@media (min-width: 1280px) {
+    :root {
+        --h5-size: 24px;
+    }
+}
+@media (min-width: 1536px) {
+    :root {
+        --h5-size: 24px;
+    }
+}
+
+/* ------ H6 ------ */
+
+@media (min-width: 768px) {
+    :root {
+        --h6-size: clamp(18px, calc(18px + 2 * ((100vw - 768px) / 512)), 20px);
+    }
+}
+@media (min-width: 1280px) {
+    :root {
+        --h6-size: 20px;
+    }
+}
+@media (min-width: 1536px) {
+    :root {
+        --h6-size: 20px;
+    }
+}
+
+/* --------------- For Container Padding --------------- */
+@media (min-width: 768px) {
+    /* Tablet to XL: 40 → 80 */
+    :root {
+        --container-px: clamp(40px,
+                calc(40px + (60 - 40) * ((100vw - 768px) / (1280 - 768))),
+                60px);
+        --container-py: clamp(70px,
+                calc(70px + (80 - 70) * ((100vw - 768px) / (1280 - 768))),
+                80px);
+        --nav-px: clamp(20px,
+                calc(20px + (36 - 20) * ((100vw - 768px) / (1280 - 768))),
+                36px);
+    }
+}
+@media (min-width: 1280px) {
+    /* XL to 2XL: 80 → 100 */
+    :root {
+        --container-px: clamp(60px,
+                calc(60px + (150 - 60) * ((100vw - 1280px) / (1680 - 1280))),
+                150px);
+        --container-py: clamp(80px,
+                calc(80px + (90 - 80) * ((100vw - 1280px) / (1680 - 1280))),
+                90px);
+        --nav-px: clamp(36px,
+                calc(36px + (126 - 36) * ((100vw - 1280px) / (1680 - 1280))),
+                126px);
+    }
+}
+@media (min-width: 1680px) {
+    :root {
+        --container-px: clamp(150px,
+                calc(150px + (200 - 150) * ((100vw - 1680px) / (1920 - 1680))),
+                200px);
+        --container-py: clamp(90px,
+                calc(90px + (100 - 90) * ((100vw - 1680px) / (1920 - 1680))),
+                100px);
+        --nav-px: clamp(126px,
+                calc(126px + (170 - 126) * ((100vw - 1680px) / (1920 - 1680))),
+                170px);
+    }
+}
+/* Paragraph text size */
+@media (min-width: 390px) {
+    :root{
+        --p-size: clamp(14px, calc(14px + (16 - 14) * ((100vw - 390px) / (768 - 390))),16px
+    );
+    }
+}
+@media (min-width: 768px) {
+    :root{
+        --p-size: 16px;
+    }
+}
+@media (min-width: 1280px) {
+    :root{
+        --p-size: clamp(16px, calc(16px + (18 - 16) * ((100vw - 1280px) / (1536 - 1280))), 18px);
+    }
+}
+@media (min-width: 1536px) {
+    :root{
+        --p-size: 18px;
+    }
+}
+/* ------ Utility using the variable ------ */
+@layer utilities {
+    .text-h1 {
+        font-size: var(--h1-size);
+        line-height: var(--h1-line-height);
+        /* letter-spacing: var(--h1-letter-spacing); */
+    }
+    .text-h2 {
+        font-size: var(--h2-size);
+        line-height: var(--h2-line-height);
+        /* letter-spacing: var(--h2-letter-spacing); */
+    }
+    .text-h3 {
+        font-size: var(--h3-size);
+        line-height: var(--h3-line-height);
+        /* letter-spacing: var(--h3-letter-spacing); */
+    }
+    .text-h4 {
+        font-size: var(--h4-size);
+        line-height: var(--h4-line-height);
+        /* letter-spacing: var(--h4-letter-spacing); */
+    }
+    .text-h5 {
+        font-size: var(--h5-size);
+        line-height: var(--h5-line-height);
+        /* letter-spacing: var(--h5-letter-spacing); */
+    }
+    .text-h6 {
+        font-size: var(--h6-size);
+        line-height: var(--h6-line-height);
+        /* letter-spacing: var(--h6-letter-spacing); */
+    }
+    .container-px {
+        padding-left: var(--container-px);
+        padding-right: var(--container-px);
+    }
+    .container-py {
+        padding-top: var(--container-py);
+        padding-bottom: var(--container-py);
+    }
+    .nav-px {
+        padding-left: var(--nav-px);
+        padding-right: var(--nav-px);
+    }
+    .text-para{
+        font-size: var(--p-size);
+    }
+}
