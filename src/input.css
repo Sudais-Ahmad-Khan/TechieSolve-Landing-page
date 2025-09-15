@@ -4,6 +4,7 @@
 body{
     font-family: "DM Sans", sans-serif;
 }
+
 @theme {
     /* ---------- Colors ---------- */
     --color-primary: #005686;
@@ -13,6 +14,7 @@ body{
     --color-success: #00BF82;
     --color-warning: #E5A600;
     --color-error: #EB5972;
+    
     /* ---------- Heading Typography ---------- */
     /* Text Sizes */
     --h1-size: clamp(40px, calc(40px + 8 * ((100vw - 390px) / 378)), 48px);
