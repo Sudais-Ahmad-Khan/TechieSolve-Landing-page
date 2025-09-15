@@ -32,7 +32,6 @@ function slider() {
             index = 0;
             time = 0;
             container.style.transition = "none"; 
-            container.style.transition = "none"; 
             container.style.transform = `translateX(0px)`;
             children[0].classList.add("text-secondary");
             heroHeading.innerHTML = headings[0];
@@ -41,7 +40,6 @@ function slider() {
             heroSection.style.backgroundSize = "cover"
             setTimeout(() => {
                 container.style.transition = "transform 0.5s ease-in-out";
-                children.style.transition = "all 0.5s ease-in-out";
             }, 50);
         } else {
             container.style.transform = `translateX(-${move}px)`;
