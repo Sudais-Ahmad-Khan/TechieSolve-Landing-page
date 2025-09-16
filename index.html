@@ -5,6 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechieSolve</title>
     <link rel="stylesheet" href="src/output.css">
+    <style>
+        @keyframes fadeIn {
+            0%{
+                opacity: 0;
+                transform: translateY(-40px) rotateX(45deg);
+            }
+            20%{
+                opacity: 1;
+                transform: translateY(0px) rotateX(0deg);
+            }
+            85%{
+                opacity: 1;
+                transform: translateY(0px) rotateX(0deg);
+            }
+            100%{
+                opacity: 0;
+                transform: translateY(-40px) rotateX(45deg);
+            }
+        }
+        .fadeIn{
+            animation: fadeIn 5s ease-in-out forwards;
+        }
+    </style>
 </head>
 <body>
     <header class="max-w-480 mx-auto w-full h-full" style="background: linear-gradient(94.2deg, #021E2D 47.66%, #021e2d80 96.58%),
@@ -12,7 +35,7 @@
 
     <!-- navbar -->
         <nav class="nav-px pt-[clamp(16px,2vh,30px)]">
-            <div class="wrapper flex justify-between items-center px-[clamp(16px,3vw,30px)] py-[clamp(14px,6vh,21px)] rounded-md border border-secondary/50 bg-primary/50">
+            <div class="wrapper flex justify-between items-center px-[clamp(16px,3vw,30px)] py-[clamp(14px,6vh,20px)] rounded-md border border-secondary/50 bg-primary/50">
             <!-- nav bar icon -->
                 <div class="nav__icon flex gap-1 items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="clamp(24px, 4vw, 43px)" height="clamp(27px, 6vh, 50px)" viewBox="0 0 44 51" fill="none">
@@ -49,66 +72,66 @@
                     </ul>
                 </div>
             <!-- Get in touch -->
-                <a href="#" class="px-6 py-3 capitalize bg-secondary hover:bg-primary text-text text-para rounded-sm hidden md:block">get in touch</a>
+                <a href="#" class="px-6 py-2 capitalize bg-secondary hover:bg-primary text-text text-para rounded-sm hidden md:block">get in touch</a>
             </div>
         </nav>
 
     <!-- Component Heading -->
         <div class="header__text text-text flex flex-col gap-2 container-px pt-[var(--container-py)] pb-[clamp(50px,8vw,80px)]">
-            <h1 id="heading" class="text-h1 font-bold w-full md:max-w-9/10 2xl:max-w-315">SMART IT SOLUTIONS FOR  YOUR  <span class="text-secondary">BUSSINES GROWTH</span></h1>
+            <h1 id="heading" class="text-h2 font-bold w-full md:max-w-8/10 2xl:max-w-265">SMART TECHNOLOGY SOLUTIONS FOR  YOUR  <span class="text-secondary">BUSSINES GROWTH</span></h1>
             <div class="header__directory flex gap-3 items-center ">
                 <p class="text-para w-9/10 max-w-165">From custom software to cloud services and IT support, Techesolve delivers cutting-edge solutions that solve real-world challenges, streamline operations, and drive long-term success for your business.</p>
             </div>
-            <div class="header__buttons flex flex-col gap-4 md:flex-row mt-12">
+            <div class="header__buttons flex flex-col gap-4 md:flex-row mt-4">
                 <a href="#" class="px-6 py-4 bg-secondary hover:bg-primary text-text rounded-sm w-full text-center border border-transparent transition-all duration-150 md:w-fit">Get a Free Consultation</a>
                 <a href="#" class="px-6 py-4 hover:bg-primary text-text rounded-sm w-full text-center border border-text transition-all duration-150 md:w-fit">Explore Your Solutions</a>
             </div>
             <!-- Pagination -->
             <div class="wrapper overflow-hidden">
-                <div class="pagination flex items-center gap-18 md:gap-22 mt-[clamp(50px,10vw,120px)] text-lg transition-all duration-500 ease-in-out">
-                    <div class="flex gap-18 md:gap-22 text-nowrap items-center text-secondary">
+                <div class="pagination flex items-center gap-18 mt-[clamp(50px,10vw,100px)] text-lg transition-all duration-1000 ease-in-out">
+                    <div class="flex gap-18 text-nowrap items-center text-secondary transition-colors duration-500 ease-in-out">
                         <p class="">SOFTWARE DEVELOPMENT</p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewBox="0 0 14 15" fill="none">
                             <path d="M13.9974 7.88526C13.9979 8.09035 13.9346 8.29052 13.8162 8.45796C13.6977 8.62539 13.5301 8.75177 13.3365 8.81952L9.36446 10.2419L7.90375 14.1991C7.83177 14.3902 7.70306 14.5546 7.5349 14.6703C7.36674 14.786 7.16719 14.8475 6.96306 14.8465C6.75892 14.8455 6.55999 14.7821 6.39297 14.6647C6.22596 14.5473 6.09887 14.3817 6.02877 14.1899L4.60702 10.2179L0.649154 8.75717C0.458128 8.6852 0.293706 8.55648 0.177975 8.38832C0.0622449 8.22016 0.000750621 8.02061 0.0017538 7.81648C0.00275697 7.61235 0.0662095 7.41341 0.183587 7.2464C0.300965 7.07938 0.466644 6.95229 0.658368 6.8822L4.6304 5.46045L6.09112 1.50258C6.1631 1.31155 6.29181 1.14713 6.45997 1.0314C6.62813 0.915671 6.82768 0.854177 7.03181 0.85518C7.23595 0.856183 7.43488 0.919636 7.6019 1.03701C7.76891 1.15439 7.896 1.32007 7.9661 1.51179L9.38847 5.48383L13.3457 6.94455C13.5386 7.0142 13.705 7.14222 13.8218 7.31081C13.9386 7.4794 13.9999 7.68019 13.9974 7.88526Z" fill="white"/>
                         </svg>
                     </div>
-                    <div class="flex gap-18 md:gap-22 text-nowrap items-center">
+                    <div class="flex gap-18 text-nowrap items-center transition-colors duration-500 ease-in-out">
                         <p class="">CONTENT WRITING</p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewBox="0 0 14 15" fill="none">
                             <path d="M13.9974 7.88526C13.9979 8.09035 13.9346 8.29052 13.8162 8.45796C13.6977 8.62539 13.5301 8.75177 13.3365 8.81952L9.36446 10.2419L7.90375 14.1991C7.83177 14.3902 7.70306 14.5546 7.5349 14.6703C7.36674 14.786 7.16719 14.8475 6.96306 14.8465C6.75892 14.8455 6.55999 14.7821 6.39297 14.6647C6.22596 14.5473 6.09887 14.3817 6.02877 14.1899L4.60702 10.2179L0.649154 8.75717C0.458128 8.6852 0.293706 8.55648 0.177975 8.38832C0.0622449 8.22016 0.000750621 8.02061 0.0017538 7.81648C0.00275697 7.61235 0.0662095 7.41341 0.183587 7.2464C0.300965 7.07938 0.466644 6.95229 0.658368 6.8822L4.6304 5.46045L6.09112 1.50258C6.1631 1.31155 6.29181 1.14713 6.45997 1.0314C6.62813 0.915671 6.82768 0.854177 7.03181 0.85518C7.23595 0.856183 7.43488 0.919636 7.6019 1.03701C7.76891 1.15439 7.896 1.32007 7.9661 1.51179L9.38847 5.48383L13.3457 6.94455C13.5386 7.0142 13.705 7.14222 13.8218 7.31081C13.9386 7.4794 13.9999 7.68019 13.9974 7.88526Z" fill="white"/>
                         </svg>
                     </div>
-                    <div class="flex gap-18 md:gap-22 text-nowrap items-center">
+                    <div class="flex gap-18 text-nowrap items-center transition-colors duration-500 ease-in-out">
                         <p class="">WEB DEVELOPMENT</p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewBox="0 0 14 15" fill="none">
                             <path d="M13.9974 7.88526C13.9979 8.09035 13.9346 8.29052 13.8162 8.45796C13.6977 8.62539 13.5301 8.75177 13.3365 8.81952L9.36446 10.2419L7.90375 14.1991C7.83177 14.3902 7.70306 14.5546 7.5349 14.6703C7.36674 14.786 7.16719 14.8475 6.96306 14.8465C6.75892 14.8455 6.55999 14.7821 6.39297 14.6647C6.22596 14.5473 6.09887 14.3817 6.02877 14.1899L4.60702 10.2179L0.649154 8.75717C0.458128 8.6852 0.293706 8.55648 0.177975 8.38832C0.0622449 8.22016 0.000750621 8.02061 0.0017538 7.81648C0.00275697 7.61235 0.0662095 7.41341 0.183587 7.2464C0.300965 7.07938 0.466644 6.95229 0.658368 6.8822L4.6304 5.46045L6.09112 1.50258C6.1631 1.31155 6.29181 1.14713 6.45997 1.0314C6.62813 0.915671 6.82768 0.854177 7.03181 0.85518C7.23595 0.856183 7.43488 0.919636 7.6019 1.03701C7.76891 1.15439 7.896 1.32007 7.9661 1.51179L9.38847 5.48383L13.3457 6.94455C13.5386 7.0142 13.705 7.14222 13.8218 7.31081C13.9386 7.4794 13.9999 7.68019 13.9974 7.88526Z" fill="white"/>
                         </svg>
                     </div>
-                    <div class="flex gap-18 md:gap-22 text-nowrap items-center">
+                    <div class="flex gap-18 text-nowrap items-center transition-colors duration-500 ease-in-out">
                         <p class="">UI/UX DESIGN</p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewBox="0 0 14 15" fill="none">
                             <path d="M13.9974 7.88526C13.9979 8.09035 13.9346 8.29052 13.8162 8.45796C13.6977 8.62539 13.5301 8.75177 13.3365 8.81952L9.36446 10.2419L7.90375 14.1991C7.83177 14.3902 7.70306 14.5546 7.5349 14.6703C7.36674 14.786 7.16719 14.8475 6.96306 14.8465C6.75892 14.8455 6.55999 14.7821 6.39297 14.6647C6.22596 14.5473 6.09887 14.3817 6.02877 14.1899L4.60702 10.2179L0.649154 8.75717C0.458128 8.6852 0.293706 8.55648 0.177975 8.38832C0.0622449 8.22016 0.000750621 8.02061 0.0017538 7.81648C0.00275697 7.61235 0.0662095 7.41341 0.183587 7.2464C0.300965 7.07938 0.466644 6.95229 0.658368 6.8822L4.6304 5.46045L6.09112 1.50258C6.1631 1.31155 6.29181 1.14713 6.45997 1.0314C6.62813 0.915671 6.82768 0.854177 7.03181 0.85518C7.23595 0.856183 7.43488 0.919636 7.6019 1.03701C7.76891 1.15439 7.896 1.32007 7.9661 1.51179L9.38847 5.48383L13.3457 6.94455C13.5386 7.0142 13.705 7.14222 13.8218 7.31081C13.9386 7.4794 13.9999 7.68019 13.9974 7.88526Z" fill="white"/>
                         </svg>
                     </div>
-                    <div class="flex gap-18 md:gap-22 text-nowrap items-center">
+                    <div class="flex gap-18 text-nowrap items-center transition-colors duration-500 ease-in-out">
                         <p class="">SOFTWARE DEVELOPMENT</p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewBox="0 0 14 15" fill="none">
                             <path d="M13.9974 7.88526C13.9979 8.09035 13.9346 8.29052 13.8162 8.45796C13.6977 8.62539 13.5301 8.75177 13.3365 8.81952L9.36446 10.2419L7.90375 14.1991C7.83177 14.3902 7.70306 14.5546 7.5349 14.6703C7.36674 14.786 7.16719 14.8475 6.96306 14.8465C6.75892 14.8455 6.55999 14.7821 6.39297 14.6647C6.22596 14.5473 6.09887 14.3817 6.02877 14.1899L4.60702 10.2179L0.649154 8.75717C0.458128 8.6852 0.293706 8.55648 0.177975 8.38832C0.0622449 8.22016 0.000750621 8.02061 0.0017538 7.81648C0.00275697 7.61235 0.0662095 7.41341 0.183587 7.2464C0.300965 7.07938 0.466644 6.95229 0.658368 6.8822L4.6304 5.46045L6.09112 1.50258C6.1631 1.31155 6.29181 1.14713 6.45997 1.0314C6.62813 0.915671 6.82768 0.854177 7.03181 0.85518C7.23595 0.856183 7.43488 0.919636 7.6019 1.03701C7.76891 1.15439 7.896 1.32007 7.9661 1.51179L9.38847 5.48383L13.3457 6.94455C13.5386 7.0142 13.705 7.14222 13.8218 7.31081C13.9386 7.4794 13.9999 7.68019 13.9974 7.88526Z" fill="white"/>
                         </svg>
                     </div>
-                    <div class="flex gap-18 md:gap-22 text-nowrap items-center">
+                    <div class="flex gap-18 text-nowrap items-center transition-colors duration-500 ease-in-out">
                         <p class="">CONTENT WRITING</p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewBox="0 0 14 15" fill="none">
                             <path d="M13.9974 7.88526C13.9979 8.09035 13.9346 8.29052 13.8162 8.45796C13.6977 8.62539 13.5301 8.75177 13.3365 8.81952L9.36446 10.2419L7.90375 14.1991C7.83177 14.3902 7.70306 14.5546 7.5349 14.6703C7.36674 14.786 7.16719 14.8475 6.96306 14.8465C6.75892 14.8455 6.55999 14.7821 6.39297 14.6647C6.22596 14.5473 6.09887 14.3817 6.02877 14.1899L4.60702 10.2179L0.649154 8.75717C0.458128 8.6852 0.293706 8.55648 0.177975 8.38832C0.0622449 8.22016 0.000750621 8.02061 0.0017538 7.81648C0.00275697 7.61235 0.0662095 7.41341 0.183587 7.2464C0.300965 7.07938 0.466644 6.95229 0.658368 6.8822L4.6304 5.46045L6.09112 1.50258C6.1631 1.31155 6.29181 1.14713 6.45997 1.0314C6.62813 0.915671 6.82768 0.854177 7.03181 0.85518C7.23595 0.856183 7.43488 0.919636 7.6019 1.03701C7.76891 1.15439 7.896 1.32007 7.9661 1.51179L9.38847 5.48383L13.3457 6.94455C13.5386 7.0142 13.705 7.14222 13.8218 7.31081C13.9386 7.4794 13.9999 7.68019 13.9974 7.88526Z" fill="white"/>
                         </svg>
                     </div>
-                    <div class="flex gap-18 md:gap-22 text-nowrap items-center">
+                    <div class="flex gap-18 text-nowrap items-center transition-colors duration-500 ease-in-out">
                         <p class="">WEB DEVELOPMENT</p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewBox="0 0 14 15" fill="none">
                             <path d="M13.9974 7.88526C13.9979 8.09035 13.9346 8.29052 13.8162 8.45796C13.6977 8.62539 13.5301 8.75177 13.3365 8.81952L9.36446 10.2419L7.90375 14.1991C7.83177 14.3902 7.70306 14.5546 7.5349 14.6703C7.36674 14.786 7.16719 14.8475 6.96306 14.8465C6.75892 14.8455 6.55999 14.7821 6.39297 14.6647C6.22596 14.5473 6.09887 14.3817 6.02877 14.1899L4.60702 10.2179L0.649154 8.75717C0.458128 8.6852 0.293706 8.55648 0.177975 8.38832C0.0622449 8.22016 0.000750621 8.02061 0.0017538 7.81648C0.00275697 7.61235 0.0662095 7.41341 0.183587 7.2464C0.300965 7.07938 0.466644 6.95229 0.658368 6.8822L4.6304 5.46045L6.09112 1.50258C6.1631 1.31155 6.29181 1.14713 6.45997 1.0314C6.62813 0.915671 6.82768 0.854177 7.03181 0.85518C7.23595 0.856183 7.43488 0.919636 7.6019 1.03701C7.76891 1.15439 7.896 1.32007 7.9661 1.51179L9.38847 5.48383L13.3457 6.94455C13.5386 7.0142 13.705 7.14222 13.8218 7.31081C13.9386 7.4794 13.9999 7.68019 13.9974 7.88526Z" fill="white"/>
                         </svg>
                     </div>
-                    <div class="flex gap-18 md:gap-22 text-nowrap items-center">
+                    <div class="flex gap-18 text-nowrap items-center transition-colors duration-500 ease-in-out">
                         <p class="">UI/UX DESIGN</p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewBox="0 0 14 15" fill="none">
                             <path d="M13.9974 7.88526C13.9979 8.09035 13.9346 8.29052 13.8162 8.45796C13.6977 8.62539 13.5301 8.75177 13.3365 8.81952L9.36446 10.2419L7.90375 14.1991C7.83177 14.3902 7.70306 14.5546 7.5349 14.6703C7.36674 14.786 7.16719 14.8475 6.96306 14.8465C6.75892 14.8455 6.55999 14.7821 6.39297 14.6647C6.22596 14.5473 6.09887 14.3817 6.02877 14.1899L4.60702 10.2179L0.649154 8.75717C0.458128 8.6852 0.293706 8.55648 0.177975 8.38832C0.0622449 8.22016 0.000750621 8.02061 0.0017538 7.81648C0.00275697 7.61235 0.0662095 7.41341 0.183587 7.2464C0.300965 7.07938 0.466644 6.95229 0.658368 6.8822L4.6304 5.46045L6.09112 1.50258C6.1631 1.31155 6.29181 1.14713 6.45997 1.0314C6.62813 0.915671 6.82768 0.854177 7.03181 0.85518C7.23595 0.856183 7.43488 0.919636 7.6019 1.03701C7.76891 1.15439 7.896 1.32007 7.9661 1.51179L9.38847 5.48383L13.3457 6.94455C13.5386 7.0142 13.705 7.14222 13.8218 7.31081C13.9386 7.4794 13.9999 7.68019 13.9974 7.88526Z" fill="white"/>
