@@ -5,9 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechieSolve</title>
     <link rel="stylesheet" href="src/output.css">
-    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    <style>[x-cloak]{display:none !important;}</style>
     <style>
+        @keyframes fade {
+            from{
+                opacity: 0;
+                transform: translateX(100%);
+            }
+            to{
+                opacity: 1;
+                transform: none;
+            }
+        }
         @keyframes fadeIn {
             0%{
                 opacity: 0;
@@ -31,14 +39,14 @@
         }
     </style>
 </head>
-<body class="">
+<body>
     <!-- -----------Hero section + Navbar------------ -->
     <header class="max-w-480 mx-auto w-full h-full relative overflow-x-hidden" style="background: linear-gradient(94.2deg, #021E2D 47.66%, #021e2d80 96.58%),
     url(./images/bg.jpg); background-repeat: no-repeat; background-position: center; background-size: cover;">
 
     <!-- navbar -->
     <nav class="nav-px pt-[clamp(16px,2vh,30px)]">
-        <div class="wrapper flex justify-between items-center px-[clamp(16px,3vw,30px)] py-[clamp(14px,6vh,21px)] rounded-md border border-secondary/50 bg-primary/50">
+        <div class="wrapper flex justify-between items-center px-[clamp(16px,3vw,30px)] py-[clamp(14px,5.5vh,16px)] rounded-md border border-secondary/50 bg-primary/50">
         <!-- nav bar icon -->
             <div class="nav__icon flex gap-1 items-center">
             <svg xmlns="http://www.w3.org/2000/svg" width="clamp(24px, 4vw, 43px)" height="clamp(27px, 6vh, 50px)" viewBox="0 0 44 51" fill="none">
@@ -60,55 +68,34 @@
                 <path d="M106.513 7.13345C97.5971 8.3518 98.7407 23.1418 108.918 21.962C118.019 20.909 117.077 5.68864 106.513 7.13345ZM106.732 18.5447C103.127 17.8019 103.182 10.5417 107.643 10.2926C112.813 10.0027 113.06 19.8469 106.732 18.5447Z" fill="var(--color-text)"/>
             </svg>
             </div>
-            <!-- menu wrapper (keep your design classes) -->
-            <div x-data="{ open: false }" class="" x-cloak>
-                    <!-- hamburger (small only) -->
-                    <svg @click="open = !open" class="xl:hidden cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="28" height="18" viewBox="0 0 28 18" fill="none">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0 1.5625C0 1.2144 0.138281 0.880564 0.384422 0.634422C0.630564 0.388281 0.964403 0.25 1.3125 0.25H26.6875C27.0356 0.25 27.3694 0.388281 27.6156 0.634422C27.8617 0.880564 28 1.2144 28 1.5625C28 1.9106 27.8617 2.24444 27.6156 2.49058C27.3694 2.73672 27.0356 2.875 26.6875 2.875H1.3125C0.964403 2.875 0.630564 2.73672 0.384422 2.49058C0.138281 2.24444 0 1.9106 0 1.5625ZM0 9C0 8.6519 0.138281 8.31806 0.384422 8.07192C0.630564 7.82578 0.964403 7.6875 1.3125 7.6875H26.6875C27.0356 7.6875 27.3694 7.82578 27.6156 8.07192C27.8617 8.31806 28 8.6519 28 9C28 9.3481 27.8617 9.68194 27.6156 9.92808C27.3694 10.1742 27.0356 10.3125 26.6875 10.3125H1.3125C0.964403 10.3125 0.630564 10.1742 0.384422 9.92808C0.138281 9.68194 0 9.3481 0 9ZM1.3125 15.125C0.964403 15.125 0.630564 15.2633 0.384422 15.5094C0.138281 15.7556 0 16.0894 0 16.4375C0 16.7856 0.138281 17.1194 0.384422 17.3656C0.630564 17.6117 0.964403 17.75 1.3125 17.75H26.6875C27.0356 17.75 27.3694 17.6117 27.6156 17.3656C27.8617 17.1194 28 16.7856 28 16.4375C28 16.0894 27.8617 15.7556 27.6156 15.5094C27.3694 15.2633 27.0356 15.125 26.6875 15.125H1.3125Z" fill="white"/>
-                    </svg>
-                
-                    <!-- options -->
-                    <div
-                    x-show="open || window.innerWidth >= 1280"
-                    x-transition:enter="transition-all duration-300 ease-out"
-                    x-transition:enter-start="opacity-0 translate-x-full"
-                    x-transition:enter-end="opacity-100 translate-x-0"
-                    x-transition:leave="transition-all duration-300 ease-in"
-                    x-transition:leave-start="opacity-100 translate-x-0"
-                    x-transition:leave-end="opacity-0 translate-x-full"
-                    class="options text-text font-semibold absolute bg-primary w-71.25 py-12.5 px-5 flex flex-col gap-50 top-0 right-0 xl:bg-transparent xl:static xl:p-0 xl:w-fit z-50"
-                    >
-                    <!-- cross button (small only) -->
-                    <div @click="open = false" class="cross cursor-pointer absolute top-5 right-5 xl:hidden">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="var(--color-text)" viewBox="0 0 256 256">
-                            <path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path>
-                        </svg>
-                    </div>
-                
-                    <!-- your nav options -->
-                    <ul class="flex xl:flex-row xl:gap-10 flex-col gap-6">
-                        <a href="#">Home</a>
-                        <a href="#">About</a>
-                        <a href="#" class="flex gap-1.5 items-center">Service
-                        <svg class="mt-1" xmlns="http://www.w3.org/2000/svg" width="13" height="7" viewBox="0 0 13 7" fill="none">
-                            <path d="M1.5 1L6.5 6L11.5 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        </a>
-                        <a href="#">Blog</a>
-                    </ul>
-                
-                    <a href="#" class="px-6 py-3 capitalize bg-secondary hover:bg-primary text-text text-para rounded-sm xl:hidden">get in touch</a>
-                    </div>
+        <!-- menu -->
+            <svg onclick="menu()" class="xl:hidden" xmlns="http://www.w3.org/2000/svg" width="28" height="18" viewBox="0 0 28 18" fill="none">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M0 1.5625C0 1.2144 0.138281 0.880564 0.384422 0.634422C0.630564 0.388281 0.964403 0.25 1.3125 0.25H26.6875C27.0356 0.25 27.3694 0.388281 27.6156 0.634422C27.8617 0.880564 28 1.2144 28 1.5625C28 1.9106 27.8617 2.24444 27.6156 2.49058C27.3694 2.73672 27.0356 2.875 26.6875 2.875H1.3125C0.964403 2.875 0.630564 2.73672 0.384422 2.49058C0.138281 2.24444 0 1.9106 0 1.5625ZM0 9C0 8.6519 0.138281 8.31806 0.384422 8.07192C0.630564 7.82578 0.964403 7.6875 1.3125 7.6875H26.6875C27.0356 7.6875 27.3694 7.82578 27.6156 8.07192C27.8617 8.31806 28 8.6519 28 9C28 9.3481 27.8617 9.68194 27.6156 9.92808C27.3694 10.1742 27.0356 10.3125 26.6875 10.3125H1.3125C0.964403 10.3125 0.630564 10.1742 0.384422 9.92808C0.138281 9.68194 0 9.3481 0 9ZM1.3125 15.125C0.964403 15.125 0.630564 15.2633 0.384422 15.5094C0.138281 15.7556 0 16.0894 0 16.4375C0 16.7856 0.138281 17.1194 0.384422 17.3656C0.630564 17.6117 0.964403 17.75 1.3125 17.75H26.6875C27.0356 17.75 27.3694 17.6117 27.6156 17.3656C27.8617 17.1194 28 16.7856 28 16.4375C28 16.0894 27.8617 15.7556 27.6156 15.5094C27.3694 15.2633 27.0356 15.125 26.6875 15.125H1.3125Z" fill="white"/>
+            </svg>
+            <div style="animation: fade 0.3s ease-in-out forwards;" class="options hidden xl:block text-text font-semibold absolute bg-primary w-71.25 py-12.5 px-5 flex flex-col gap-50 top-0 right-0 xl:bg-transparent xl:static xl:p-0 xl:w-fit z-100">
+                <!-- cross button -->
+                <div onclick="menu()" class="cross cursor-pointer absolute top-5 right-5 xl:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="var(--color-text)" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg>
+                </div>
+                <!-- options -->
+                <ul class="flex xl:flex-row xl:gap-10 flex-col gap-6">
+                    <a href="#">Home</a>
+                    <a href="#">About</a>
+                    <a href="#" class="flex gap-1.5 items-center text-">Service<svg class="mt-1" xmlns="http://www.w3.org/2000/svg" width="13" height="7" viewBox="0 0 13 7" fill="none">
+                        <path d="M1.5 1L6.5 6L11.5 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg></a>
+                    <a href="#">Blog</a>
+                </ul>
+                <a href="#" class="px-6 py-3 capitalize bg-secondary hover:bg-primary text-text text-para rounded-sm xl:hidden">get in touch</a>
             </div>
-
         <!-- Get in touch -->
-            <a href="#" class="px-6 py-3 capitalize bg-secondary hover:bg-primary text-text text-para rounded-sm hidden md:block">get in touch</a>
+            <a href="#" class="px-6 py-4 capitalize bg-secondary hover:bg-primary text-text text-para rounded-sm hidden md:block">get in touch</a>
         </div>
     </nav>
 
     <!-- Component Heading -->
-        <div class="header__text text-text flex flex-col gap-2 container-px pt-[var(--container-py)] pb-[clamp(50px,8vw,80px)]">
-            <h1 id="heading" class="text-h2 font-bold w-full md:max-w-8/10 2xl:max-w-265">SMART TECHNOLOGY SOLUTIONS FOR  YOUR  <span class="text-secondary">BUSSINES GROWTH</span></h1>
+        <div class="header__text text-text flex flex-col gap-2 container-px  pt-[var(--container-py)] pb-[clamp(50px,8vw,80px)]">
+            <h1 id="heading" class="text-h1 font-bold w-full md:max-w-8/10 2xl:max-w-275">SMART TECHNOLOGY SOLUTIONS FOR  YOUR  <span class="text-secondary">BUSSINES GROWTH</span></h1>
             <div class="header__directory flex gap-3 items-center ">
                 <p class="text-para w-9/10 max-w-165">From custom software to cloud services and IT support, Techesolve delivers cutting-edge solutions that solve real-world challenges, streamline operations, and drive long-term success for your business.</p>
             </div>
@@ -365,56 +352,40 @@
        
     </div>
     <!-- ---------- BLOG ----------- -->
-    <div class="mx-auto w-full max-w-480  container-px my-12.5 md:my-15 2xl:my-17.5">
-        <!-------------card wrapper----------------->
-        <div class="grid grid-cols-1  gap-15 bg-white xl:grid-cols-3 xl:gap-5 2xl:gap-6 xl:gap-y-15  2xl:gap-y-15" >
-            <!------------card 1--------------->
+    <section class="mx-auto w-full max-w-480  container-px py-12.5 md:py-15 2xl:py-17.5 flex flex-col gap-8 2xl:gap-15 md:gap-11 ">
+            <h2 class="text-h2 font-bold">Our Latest Blogs</h2>
+    <!-------------card wrapper----------------->
+    <div class="grid grid-cols-1  gap-15 bg-white xl:grid-cols-3 xl:gap-5 2xl:gap-6 xl:gap-y-15  2xl:gap-y-15" >
+        <!------------card 1--------------->
+        <div class="flex flex-col gap-4 xl:gap-6">
+            <img src="images/img1.png" alt="" class="w-full h-57.5 object-cover md:h-75 hover:scale-105  transform transition-transform duration-300 ease-in-out ">
+            <div class="flex flex-col gap-2 md:gap-3 xl:gap-4">
+                <h4 class="text-h4 text-tertiary hover:text-primary font-bold">Top 5 Cybersecurity Practices for 2025</h4>
+                <p class="text-xs font-semibold text-tertiary md:text-sm">MARCH 06, 2025</p>
+                <p class="text-para text-tertiary md:pr-55.5 xl:pr-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            </div>
+        </div>
+        <!------------card 2--------------->
             <div class="flex flex-col gap-4 xl:gap-6">
-                <img src="images/img1.png" alt="" class="w-full h-57.5 object-cover md:h-75 hover:scale-105  transform transition-transform duration-300 ease-in-out ">
-                <div class="flex flex-col gap-2 md:gap-3 xl:gap-4">
-                    <h4 class="text-h4 text-tertiary hover:text-primary font-bold">Top 5 Cybersecurity Practices for 2025</h4>
-                    <p class="text-xs font-semibold text-tertiary md:text-sm">MARCH 06, 2025</p>
-                    <p class="text-para text-tertiary md:pr-55.5 xl:pr-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                </div>
+            <img src="images/img2.jpg" alt="" class="w-full h-57.5 object-cover md:h-75 hover:scale-105  transform transition-transform duration-300 ease-in-out ">
+            <div class="flex flex-col gap-2 md:gap-3 xl:gap-4">
+                <h4 class="text-h4 text-tertiary hover:text-primary font-bold">Why Cloud Migration Is No Longer Optional</h4>
+                <p class="text-xs font-semibold text-tertiary md:text-sm">MARCH 06, 2025</p>
+                <p class="text-para text-tertiary md:pr-55.5 xl:pr-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
             </div>
-              <!------------card 2--------------->
-                <div class="flex flex-col gap-4 xl:gap-6">
-                <img src="images/img2.jpg" alt="" class="w-full h-57.5 object-cover md:h-75 hover:scale-105  transform transition-transform duration-300 ease-in-out ">
-                <div class="flex flex-col gap-2 md:gap-3 xl:gap-4">
-                    <h4 class="text-h4 text-tertiary hover:text-primary font-bold">Why Cloud Migration Is No Longer Optional</h4>
-                    <p class="text-xs font-semibold text-tertiary md:text-sm">MARCH 06, 2025</p>
-                    <p class="text-para text-tertiary md:pr-55.5 xl:pr-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                </div>
-            </div>
-           <!------------card 3--------------->
-             <div class="flex flex-col gap-4 xl:gap-6">
-                <img src="images/img3.jpg" alt="" class="w-full h-57.5 object-cover md:h-75 hover:scale-105  transform transition-transform duration-300 ease-in-out ">
-                <div class="flex flex-col gap-2 md:gap-3 xl:gap-4">
-                    <h4 class="text-h4 text-tertiary hover:text-primary font-bold">AI in Business: Real Benefits</h4>
-                    <p class="text-xs font-semibold text-tertiary md:text-sm">MARCH 06, 2025</p>
-                    <p class="text-para text-tertiary md:pr-55.5 xl:pr-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                </div>
-            </div>
-              <!------------card 4--------------->
-               <div class="flex flex-col gap-4 xl:gap-6">
-                <img src="images/img3.jpg" alt="" class="w-full h-57.5 object-cover md:h-75 hover:scale-105  transform transition-transform duration-300 ease-in-out ">
-                <div class="flex flex-col gap-2 md:gap-3 xl:gap-4">
-                    <h4 class="text-h4 text-tertiary hover:text-primary font-bold">AI in Business: Real Benefits</h4>
-                    <p class="text-xs font-semibold text-tertiary md:text-sm">MARCH 06, 2025</p>
-                    <p class="text-para text-tertiary md:pr-55.5 xl:pr-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                </div>
-            </div>
-            <!---------------card 5----------------------->
         </div>
-        <div class="flex gap-6 items-center justify-center mt-12.5">
-            <div class="px-3 py-2" >Pre</div>
-            <div class="bg-gray-300 hover:bg-primary hover:text-white px-4 py-2 rounded-sm">1</div>
-            <div class="bg-gray-300 hover:bg-primary hover:text-white px-4 py-2 rounded-sm">2</div>
-             <div class="bg-gray-300 hover:bg-primary hover:text-white px-4 py-2 rounded-sm">3</div>
-             <div>Next</div>
+        <!------------card 3--------------->
+        <div class="flex flex-col gap-4 xl:gap-6">
+            <img src="images/img3.jpg" alt="" class="w-full h-57.5 object-cover md:h-75 hover:scale-105  transform transition-transform duration-300 ease-in-out ">
+            <div class="flex flex-col gap-2 md:gap-3 xl:gap-4">
+                <h4 class="text-h4 text-tertiary hover:text-primary font-bold">AI in Business: Real Benefits</h4>
+                <p class="text-xs font-semibold text-tertiary md:text-sm">MARCH 06, 2025</p>
+                <p class="text-para text-tertiary md:pr-55.5 xl:pr-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            </div>
         </div>
-        <!-- <button class="border-2 border-primary px-8 py-4 mt-15 text-primary hover:bg-primary hover:text-white"><a href="#">view All Blogs </a></button> -->
     </div>
+    <button class="border-2 w-full text-base border-primary px-8 py-4  text-primary hover:bg-primary hover:text-white font-semibold md:max-w-45 whitespace-nowrap md:mx-auto"><a href="#">view All Blogs </a></button>
+    </section>
     <!-- ---------- Testimonial --------- -->
     <div class="wrapper max-w-480 mx-auto flex flex-col gap-[clamp(40px,5vw,80px)] py-[clamp(50px,7.5vw,100px)] w-full overflow-hidden container-px">
         <h2 class="text-h2 font-bold text-center">What Our Clients Say</h2>
@@ -426,10 +397,10 @@
                     </p>
                     <div class="bio__data mx-auto -mt-16.5 flex flex-col gap-7.5">
                         <div class="profilePic p-2.5 rounded-full bg-text w-fit mx-auto">
-                            <img class="w-28 aspect-square rounded-full object-cover" src="Images/person1.jpg" alt="Profile PicTure">
+                            <img class="w-28 aspect-square rounded-full object-cover" src="./images/person1.jpg" alt="Profile PicTure">
                         </div>
                         <div class="name text-center">
-                            <p class="text-xl font-bold">John Dodge</p>
+                            <p class="text-xl font-bold text-primary">John Dodge</p>
                             <p class="leading-[200%]">CEO Web Company</p>
                         </div>
                     </div>
@@ -440,10 +411,10 @@
                     </p>
                     <div class="bio__data mx-auto -mt-16.5 flex flex-col gap-7.5">
                         <div class="profilePic p-2.5 rounded-full bg-text w-fit mx-auto">
-                            <img class="w-28 aspect-square rounded-full object-cover" src="Images/person2.jpg" alt="Profile PicTure">
+                            <img class="w-28 aspect-square rounded-full object-cover" src="./images/person2.jpg" alt="Profile PicTure">
                         </div>
                         <div class="name text-center">
-                            <p class="text-xl font-bold">John Dodge</p>
+                            <p class="text-xl font-bold text-primary">John Dodge</p>
                             <p class="leading-[200%]">CEO Web Company</p>
                         </div>
                     </div>
@@ -454,10 +425,10 @@
                     </p>
                     <div class="bio__data mx-auto -mt-16.5 flex flex-col gap-7.5">
                         <div class="profilePic p-2.5 rounded-full bg-text w-fit mx-auto">
-                            <img class="w-28 aspect-square rounded-full object-cover" src="Images/person3.jpg" alt="Profile PicTure">
+                            <img class="w-28 aspect-square rounded-full object-cover" src="./images/person3.jpg" alt="Profile PicTure">
                         </div>
                         <div class="name text-center">
-                            <p class="text-xl font-bold">John Dodge</p>
+                            <p class="text-xl font-bold text-primary">John Dodge</p>
                             <p class="leading-[200%]">CEO Web Company</p>
                         </div>
                     </div>
@@ -497,29 +468,29 @@
                 <div class="list flex flex-col gap-6 h-fit">
                     <p class="md:text-lg font-semibold">Company</p>
                     <ul class="text-para flex flex-col gap-2">
-                        <li>About Us</li>
-                        <li>Careers</li>
-                        <li>Contact</li>
+                        <a href="#">About Us</a>
+                        <a href="#">Careers</a>
+                        <a href="#">Contact</a>
                     </ul>
                 </div>
                 <!-- ListTWO -->
                 <div class="list flex flex-col gap-6 h-fit">
                     <p class="md:text-lg font-semibold">Courses</p>
                     <ul class="text-para flex flex-col gap-2">
-                        <li>cloud</li>
-                        <li>security</li>
-                        <li>AI</li>
-                        <li>development</li>
+                        <a href="#">cloud</a>
+                        <a href="#">security</a>
+                        <a href="#">AI</a>
+                        <a href="#">development</a>
                     </ul>
                 </div>
                 <!-- ListThree -->
                 <div class="list flex flex-col gap-6 h-fit">
                     <p class="md:text-lg font-semibold">Services</p>
                     <ul class="text-para flex flex-col gap-2">
-                        <li>cloud</li>
-                        <li>development</li>
-                        <li>Cybersecurity</li>
-                        <li>Consulting</li>
+                        <a href="#">cloud</a>
+                        <a href="#">development</a>
+                        <a href="#">Cybersecurity</a>
+                        <a href="#">Consulting</a>
                     </ul>
                 </div>
                 <!-- ListFour -->
@@ -536,14 +507,14 @@
         <!-- Footer Bottom -->
         <div class="footer__bottom grid gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 z-40">
             <!-- ------Sign up------ -->
-            <div class="signup w-full rounded-full border border-text p-1.5 pl-4 flex items-center justify-between md:col-start-2 md:col-end-3 xl:col-start-3 xl:col-end-4">
-                <p class="text-para font-normal">Sign up to the newsletter</p>
-                <a href="#" class="p-3 rounded-full bg-secondary">
+            <form action class="signup w-full rounded-full border border-text p-1.5 pl-4 flex items-center justify-between md:col-start-2 md:col-end-3 xl:col-start-3 xl:col-end-4">
+                <input type="email" placeholder="Sign up to the newsletter" class="text-para font-normal outline-0 w-full" required>
+                <button  type="submit" class="p-3 rounded-full bg-secondary">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
                         <path d="M1.11108 10.5412H18.8889M18.8889 10.5412L9.99997 1.65234M18.8889 10.5412L9.99997 19.4301" stroke="white" stroke-width="2.22222" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                </a>
-            </div>
+                </button>
+            </form>
             <!-- ------social media------ -->
             <div class="social__media flex gap-6 items-center md:col-start-1 md:col-end-2 md:row-start-1 md:row-end-2 xl:col-start-2 xl:col-end-3 xl:justify-center">
                 <a href="#" class="facebook w-9.5 h-9.5 grid place-items-center border border-text rounded-sm hover:bg-text group transition-all duration-300">

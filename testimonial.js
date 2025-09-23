@@ -1,5 +1,6 @@
 let testSlider = document.querySelector(".card-wrapper");
 let wrapper = document.querySelector(".card__container")
+let menuOptions = document.querySelector(".options");
 testSlider.innerHTML += testSlider.innerHTML;
 let card = testSlider.children;
 let testGap = parseFloat(getComputedStyle(testSlider).testGap);
@@ -20,7 +21,6 @@ function updatetestSlider() {
     } else {
         testSlider.style.paddingLeft = "0px";
     }
-
     
     maxtestMove = testSlider.scrollWidth - cardWidth - paddingLeft;
 
@@ -51,7 +51,7 @@ updatetestSlider();
 window.addEventListener("resize", updatetestSlider);
 // rotation of upcoming card\
 Array.from(card).forEach((e)=>{
-    e.style.transform = "rotateY(30deg) rotateZ(-5deg) scale(1.1)"
+    e.style.transform = "scale(0.9)"
     card[testIndex].style.transform = "none";
 })
 let testTime = 4000;
@@ -77,11 +77,11 @@ function start(){
             card[testIndex].firstElementChild.classList.remove("bg-[#EBEBEB]", "border-gray-300");
             // previous Card Rotation 
             if(card[testIndex - 1]){
-                card[testIndex-1].style.transform = "rotateY(-30deg) rotateZ(5deg) scale(1.1)"
+                card[testIndex-1].style.transform = "scale(0.9)"
                 card[testIndex].style.transform = "none";
             }
             if(card[testIndex + 1]){
-                card[testIndex+1].style.transform = "rotateY(30deg) rotateZ(-5deg) scale(1.1)";
+                card[testIndex+1].style.transform = "scale(0.9)";
                 card[testIndex].style.transform = "none";
             }
         }else {
@@ -97,7 +97,7 @@ function start(){
             Array.from(card).forEach((e)=>{
                 e.firstElementChild.classList.remove("bg-secondary", "text-text");
                 e.firstElementChild.classList.add("bg-[#EBEBEB]", "border-gray-300");
-                e.style.transform = "rotateY(30deg) rotateZ(-5deg) scale(1.1)"
+                e.style.transform = "scale(0.9)"
                 card[testIndex].style.transform = "none";
             })
             card[testIndex].firstElementChild.classList.add("bg-secondary", "text-text");
@@ -123,7 +123,7 @@ bubble.forEach((e, i) => {
         Array.from(card).forEach((el) => {
             el.firstElementChild.classList.remove("bg-secondary", "text-text");
             el.firstElementChild.classList.add("bg-[#EBEBEB]", "border-gray-300");
-            el.style.transform = "rotateY(30deg) rotateZ(-5deg) scale(1.1)";
+            el.style.transform = "scale(0.9)";
         });
 
         card[testIndex].firstElementChild.classList.add("bg-secondary", "text-text");
@@ -131,10 +131,18 @@ bubble.forEach((e, i) => {
         card[testIndex].style.transform = "none";
 
         if (card[testIndex - 1]) {
-            card[testIndex - 1].style.transform = "rotateY(-30deg) rotateZ(5deg) scale(1.1)";
+            card[testIndex - 1].style.transform = "scale(0.9)";
         }
         if (card[testIndex + 1]) {
-            card[testIndex + 1].style.transform = "rotateY(30deg) rotateZ(-5deg) scale(1.1)";
+            card[testIndex + 1].style.transform = "scale(0.9)";
         }
     });
 });
+
+        function menu(){
+            if(menuOptions.classList.contains("hidden")){
+                menuOptions.classList.remove("hidden");
+            }else{
+                menuOptions.classList.add("hidden");
+            }
+        }
