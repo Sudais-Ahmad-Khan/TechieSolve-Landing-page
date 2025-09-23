@@ -232,6 +232,9 @@
   .z-50 {
     z-index: 50;
   }
+  .z-100 {
+    z-index: 100;
+  }
   .container {
     width: 100%;
     @media (width >= 40rem) {
@@ -680,6 +683,12 @@
   .py-12\.5 {
     padding-block: calc(var(--spacing) * 12.5);
   }
+  .py-\[clamp\(14px\,5\.5vh\,16px\)\] {
+    padding-block: clamp(14px, 5.5vh, 16px);
+  }
+  .py-\[clamp\(14px\,6vh\,16px\)\] {
+    padding-block: clamp(14px, 6vh, 16px);
+  }
   .py-\[clamp\(14px\,6vh\,20px\)\] {
     padding-block: clamp(14px, 6vh, 20px);
   }
@@ -803,6 +812,9 @@
   .text-wrap {
     text-wrap: wrap;
   }
+  .whitespace-nowrap {
+    white-space: nowrap;
+  }
   .text-black {
     color: var(--color-black);
   }
@@ -844,6 +856,10 @@
   .outline {
     outline-style: var(--tw-outline-style);
     outline-width: 1px;
+  }
+  .outline-0 {
+    outline-style: var(--tw-outline-style);
+    outline-width: 0px;
   }
   .transition {
     transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, content-visibility, overlay, pointer-events;
@@ -1030,6 +1046,11 @@
       grid-row-end: 3;
     }
   }
+  .md\:mx-auto {
+    @media (width >= 48rem) {
+      margin-inline: auto;
+    }
+  }
   .md\:my-15 {
     @media (width >= 48rem) {
       margin-block: calc(var(--spacing) * 15);
@@ -1070,6 +1091,11 @@
       max-width: calc(8/10 * 100%);
     }
   }
+  .md\:max-w-45 {
+    @media (width >= 48rem) {
+      max-width: calc(var(--spacing) * 45);
+    }
+  }
   .md\:grid-cols-2 {
     @media (width >= 48rem) {
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1090,6 +1116,11 @@
       gap: calc(var(--spacing) * 3);
     }
   }
+  .md\:gap-11 {
+    @media (width >= 48rem) {
+      gap: calc(var(--spacing) * 11);
+    }
+  }
   .md\:gap-20 {
     @media (width >= 48rem) {
       gap: calc(var(--spacing) * 20);
@@ -1108,6 +1139,11 @@
   .md\:gap-y-15 {
     @media (width >= 48rem) {
       row-gap: calc(var(--spacing) * 15);
+    }
+  }
+  .md\:py-15 {
+    @media (width >= 48rem) {
+      padding-block: calc(var(--spacing) * 15);
     }
   }
   .md\:pr-9 {
@@ -1345,6 +1381,11 @@
       line-height: calc(var(--spacing) * 15);
     }
   }
+  .xl\:opacity-100 {
+    @media (width >= 80rem) {
+      opacity: 100%;
+    }
+  }
   .\32 xl\:my-17\.5 {
     @media (width >= 96rem) {
       margin-block: calc(var(--spacing) * 17.5);
@@ -1355,9 +1396,19 @@
       max-width: calc(var(--spacing) * 265);
     }
   }
+  .\32 xl\:max-w-275 {
+    @media (width >= 96rem) {
+      max-width: calc(var(--spacing) * 275);
+    }
+  }
   .\32 xl\:gap-6 {
     @media (width >= 96rem) {
       gap: calc(var(--spacing) * 6);
+    }
+  }
+  .\32 xl\:gap-15 {
+    @media (width >= 96rem) {
+      gap: calc(var(--spacing) * 15);
     }
   }
   .\32 xl\:gap-29 {
@@ -1368,6 +1419,11 @@
   .\32 xl\:gap-y-15 {
     @media (width >= 96rem) {
       row-gap: calc(var(--spacing) * 15);
+    }
+  }
+  .\32 xl\:py-17\.5 {
+    @media (width >= 96rem) {
+      padding-block: calc(var(--spacing) * 17.5);
     }
   }
 }
